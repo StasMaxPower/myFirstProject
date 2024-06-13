@@ -1,0 +1,27 @@
+package lesson_22.task3;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Начало концерта");
+
+        Singer1 singer1 = new Singer1();
+        Singer2 singer2 = new Singer2();
+        singer2.setDaemon(true);
+        singer1.start();
+        singer2.start();
+
+        try {
+            singer1.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Конец концерта");
+
+
+    }
+
+
+}
